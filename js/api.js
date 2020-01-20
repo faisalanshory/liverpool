@@ -155,7 +155,7 @@ function showStanding(data) {
     `;
 }
 
-function getTeam() {
+function getTeam()  {
     if ("caches" in window) {
         caches.match(ENDPOINT_ALL).then(function (response) {
             if (response) {
@@ -166,7 +166,7 @@ function getTeam() {
             }
         })
     }
-  
+
     fetchAPI(ENDPOINT_ALL)
         .then(data => {
             showTeam(data);
@@ -174,8 +174,8 @@ function getTeam() {
         .catch(error => {
             console.log(error)
         })
-  
 }
+
 
 function showTeam(data) {
     let squads = "";
@@ -300,7 +300,6 @@ function getSavedTeams() {
       console.log(teams);
       // Menyusun komponen card artikel secara dinamis
         let squads = "";
-        let teamElement =  document.getElementById("teams");
 
         teams.forEach(function (team){
             squads += `
@@ -324,7 +323,7 @@ function getSavedTeams() {
             `;
         });
 
-        teamElement.innerHTML = ` 
+        document.getElementById("teams").innerHTML = ` 
             <div class="row">    
             ${squads}
             </div>

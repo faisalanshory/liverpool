@@ -1,9 +1,9 @@
 function saveForLater(team) {
   var dbPromised = idb.open("football-teams", 1, function(upgradeDb) {
     var articlesObjectStore = upgradeDb.createObjectStore("teams", {
-      keyPath: "id"
+      keyPath: "ID"
     });
-    articlesObjectStore.createIndex("name", "name", { unique: false });
+    //articlesObjectStore.createIndex("name", "name", { unique: false });
     });	
     dbPromised
       .then(function(db) {
@@ -21,9 +21,9 @@ function saveForLater(team) {
 function getAll() {
   var dbPromised = idb.open("football-teams", 1, function(upgradeDb) {
     var articlesObjectStore = upgradeDb.createObjectStore("teams", {
-      keyPath: "id"
+      keyPath: "ID"
     });
-    articlesObjectStore.createIndex("name", "name", { unique: false });
+    //articlesObjectStore.createIndex("name", "name", { unique: false });
     });
     return new Promise(function(resolve, reject) {
       dbPromised

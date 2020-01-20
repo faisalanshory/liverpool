@@ -44,15 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (this.readyState === 4) {
                 var content = document.querySelector("#body-content");
 
-                if (page === "team") {
-                    getTeam();
-                } else if (page === "standing"){
-                    getStanding();
-                }
-                } else if (page === "favourite"){
-                    getSavedTeams();
-                }
-
                 if (this.status === 200) {
                     content.innerHTML = xhttp.responseText;
                 } else if (this.status === 404) {
@@ -61,8 +52,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     content.innerHTML = "<p>Ups.. halaman tidak dapat diakses.</p>";
                 }
             };
+        }
     
         xhttp.open("GET", "pages/" + page + ".html", true);
         xhttp.send();
+
+        if (page === "team") {
+            getTeam();
+        } else if (page === "standing"){
+            getStanding();
+        }else if (page === "favourite"){
+            getSavedTeams();
+        }
     }
 })
