@@ -231,6 +231,7 @@ function getTeamById() {
         fetchAPI(ENDPOINT_TEAMS + idParam)
             .then(data => {
                 showTeamById(data);
+                resolve(data)
             })
             .catch(error => {
                 console.log(error)
